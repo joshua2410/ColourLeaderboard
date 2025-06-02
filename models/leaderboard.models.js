@@ -17,3 +17,11 @@ exports.sendScore = (data) => {
       return rows[0];
     });
 };
+
+exports.fetchTop = () => {
+  return db
+    .query(`SELECT*FROM leaderboard ORDER BY score DESC LIMIT 50;`)
+    .then(({ rows }) => {
+      return rows;
+    });
+};
