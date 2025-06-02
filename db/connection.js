@@ -3,6 +3,7 @@ const ENV = process.env.NODE_ENV || "development";
 
 require("dotenv").config({
   path: `${__dirname}/../.env.${ENV}`,
+  ssl: { rejectUnauthorized: false },
 });
 
 if (!process.env.PGDATABASE && !process.env.DATABASE_URL) {
